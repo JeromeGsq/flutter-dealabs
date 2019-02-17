@@ -1,9 +1,6 @@
 import 'dart:ui';
 
-import 'package:flulabs/models/auth_request.dart';
-import 'package:flulabs/models/gender.dart';
 import 'package:flulabs/models/loading_status.dart';
-import 'package:flulabs/models/signup_request.dart';
 
 import 'screen_state.dart';
 import 'screen.dart';
@@ -34,19 +31,9 @@ class ValidatePasswordMatchAction {
   ValidatePasswordMatchAction(this.password, this.confirmPassword, this.screen);
 }
 
-class ValidateSignUpFieldsAction {
-  final SignUpRequest request;
-  ValidateSignUpFieldsAction(this.request);
-}
-
 class ValidateCodeAction {
   final String code;
   ValidateCodeAction(this.code);
-}
-
-class ChangeGenderAction {
-  final Gender gender;
-  ChangeGenderAction(this.gender);
 }
 
 class ChangeScreenStateAction {
@@ -80,16 +67,6 @@ class RetypePasswordErrorAction {
 class CodeErrorAction {
   final String message;
   CodeErrorAction(this.message);
-}
-
-class SignInAction {
-  final AuthRequest request;
-  SignInAction(this.request);
-}
-
-class SignUpAction {
-  final SignUpRequest request;
-  SignUpAction(this.request);
 }
 
 class SaveTokenAction {

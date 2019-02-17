@@ -1,1 +1,1 @@
-enum ScreenState { WELCOME, SINGIN }
+enum ScreenState { PRODUCT }

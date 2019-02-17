@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:flulabs/models/gender.dart';
 import 'package:flulabs/models/loading_status.dart';
-import 'package:flulabs/models/signup_request.dart';
 import 'package:flulabs/redux/app/app_state.dart';
-import 'signup_viewmodel.dart';
+import 'product_viewmodel.dart';
 import 'package:flulabs/utils/strings.dart';
 import 'package:flulabs/utils/colors.dart';
 
-class SignUp extends StatefulWidget {
+class ProductPage extends StatefulWidget {
   @override
-  _SignUpState createState() => _SignUpState();
+  _ProductPageState createState() => _ProductPageState();
 }
 
-class _SignUpState extends State<SignUp> {
+class _ProductPageState extends State<ProductPage> {
   final TextEditingController _emailController = new TextEditingController();
   final TextEditingController _passController = new TextEditingController();
   final TextEditingController _retypePassController =
@@ -30,16 +28,16 @@ class _SignUpState extends State<SignUp> {
           builder: (context, constraints) => SafeArea(
                 child: Container(
                   color: Colors.black,
-                  child: StoreConnector<AppState, SignUpViewModel>(
+                  child: StoreConnector<AppState, ProductViewModel>(
                       builder: (_, viewModel) =>
                           content(viewModel, constraints),
-                      converter: (store) => SignUpViewModel.fromStore(store)),
+                      converter: (store) => ProductViewModel.fromStore(store)),
                 ),
               )),
     );
   }
 
-  Widget content(SignUpViewModel viewModel, BoxConstraints constraints) =>
+  Widget content(ProductViewModel viewModel, BoxConstraints constraints) =>
       viewModel.status != LoadingStatus.loading
           ? Container(
               child: new Column(
@@ -202,7 +200,7 @@ class _SignUpState extends State<SignUp> {
         ),
       );
 
-  Widget genderBox(SignUpViewModel viewModel, BoxConstraints constraints) =>
+  Widget genderBox(ProductViewModel viewModel, BoxConstraints constraints) =>
       new Padding(
         padding: EdgeInsets.only(top: 16.0, right: 32.0),
         child: new Container(
@@ -221,76 +219,6 @@ class _SignUpState extends State<SignUp> {
                       style: new TextStyle(fontSize: 14.0, color: Colors.white),
                     ),
                   ),
-                  new Padding(
-                    padding: EdgeInsets.only(top: 4.0),
-                    child: new Row(
-                      children: <Widget>[
-                        new Radio(
-                          activeColor: Color(primaryBlue),
-                          value: Gender.UNDEFINED.index,
-                          groupValue: viewModel.gender.index,
-                          onChanged: (value) {
-                            Gender gender = Gender.values[value];
-                            viewModel.changeGender(gender);
-                          },
-                          materialTapTargetSize:
-                              MaterialTapTargetSize.shrinkWrap,
-                        ),
-                        new Text(
-                          undefined,
-                          style: new TextStyle(
-                              fontSize: 16.0,
-                              color: viewModel.gender == Gender.UNDEFINED
-                                  ? Colors.white
-                                  : new Color(0xB3FFFFFF)),
-                        )
-                      ],
-                    ),
-                  ),
-                  new Row(
-                    children: <Widget>[
-                      new Radio(
-                        activeColor: Color(primaryBlue),
-                        value: Gender.MALE.index,
-                        groupValue: viewModel.gender.index,
-                        onChanged: (value) {
-                          Gender gender = Gender.values[value];
-                          viewModel.changeGender(gender);
-                        },
-                        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                      ),
-                      new Text(
-                        male,
-                        style: new TextStyle(
-                            fontSize: 16.0,
-                            color: viewModel.gender == Gender.MALE
-                                ? Colors.white
-                                : new Color(0xB3FFFFFF)),
-                      )
-                    ],
-                  ),
-                  new Row(
-                    children: <Widget>[
-                      new Radio(
-                        activeColor: Color(primaryBlue),
-                        value: Gender.FEMALE.index,
-                        groupValue: viewModel.gender.index,
-                        onChanged: (value) {
-                          Gender gender = Gender.values[value];
-                          viewModel.changeGender(gender);
-                        },
-                        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                      ),
-                      new Text(
-                        female,
-                        style: new TextStyle(
-                            fontSize: 16.0,
-                            color: viewModel.gender == Gender.FEMALE
-                                ? Colors.white
-                                : new Color(0xB3FFFFFF)),
-                      )
-                    ],
-                  ),
                 ],
               ),
             ),
@@ -298,7 +226,7 @@ class _SignUpState extends State<SignUp> {
         ),
       );
 
-  Widget createBtn(SignUpViewModel viewModel) => GestureDetector(
+  Widget createBtn(ProductViewModel viewModel) => GestureDetector(
         child: Container(
           height: 44.0,
           color: Color(primaryBlue),
@@ -308,11 +236,7 @@ class _SignUpState extends State<SignUp> {
             style: TextStyle(fontSize: 16.0, color: Colors.white),
           ),
         ),
-        onTap: () {
-          var request = new SignUpRequest(
-              viewModel.email, viewModel.password, viewModel.retypePassword);
-          viewModel.signUp(request);
-        },
+        onTap: () {},
       );
 
   int _getColor(LoadingStatus status, String error, FocusNode node) {

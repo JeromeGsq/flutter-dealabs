@@ -1,1 +1,1 @@
-enum Screen { SIGNIN, SIGNUP }
+enum Screen { PRODUCT }

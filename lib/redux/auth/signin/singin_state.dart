@@ -3,7 +3,7 @@ import 'package:flulabs/models/loading_status.dart';
 import 'package:flulabs/redux/auth/screen_state.dart';
 
 @immutable
-class SignInState {
+class ProductState {
   final ScreenState type;
   final LoadingStatus loadingStatus;
   final String password;
@@ -13,7 +13,7 @@ class SignInState {
   final String code;
   final String codeError;
 
-  SignInState(
+  ProductState(
       {this.type,
       this.loadingStatus,
       this.password,
@@ -23,7 +23,7 @@ class SignInState {
       this.code,
       this.codeError});
 
-  SignInState copyWith({
+  ProductState copyWith({
     ScreenState type,
     LoadingStatus loadingStatus,
     String password,
@@ -36,7 +36,7 @@ class SignInState {
     String code,
     String codeError,
   }) {
-    return new SignInState(
+    return new ProductState(
         type: type ?? this.type,
         loadingStatus: loadingStatus ?? this.loadingStatus,
         password: password ?? this.password,
@@ -47,9 +47,9 @@ class SignInState {
         codeError: codeError ?? this.codeError);
   }
 
-  factory SignInState.initial() {
-    return new SignInState(
-        type: ScreenState.WELCOME,
+  factory ProductState.initial() {
+    return new ProductState(
+        type: ScreenState.PRODUCT,
         loadingStatus: LoadingStatus.success,
         password: "",
         passwordError: "",

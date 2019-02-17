@@ -1,26 +1,20 @@
 import 'package:meta/meta.dart';
-import 'package:flulabs/redux/auth/auth_state.dart';
 import 'package:flulabs/redux/auth/signin/singin_state.dart';
 
 @immutable
 class AppState {
-  final AuthState authState;
-  final SignInState signInState;
+  final ProductState productState;
 
-  AppState({@required this.authState, @required this.signInState});
+  AppState({@required this.productState});
 
   factory AppState.initial() {
-    return AppState(
-        authState: AuthState.initial(), signInState: SignInState.initial());
+    return AppState(productState: ProductState.initial());
   }
 
   AppState copyWith({
-    AuthState authState,
-    SignInState signInState,
+    ProductState signInState,
   }) {
-    return AppState(
-        authState: authState ?? this.authState,
-        signInState: signInState ?? this.signInState);
+    return AppState(productState: signInState ?? this.productState);
   }
 
   @override
@@ -28,9 +22,8 @@ class AppState {
       identical(this, other) ||
       other is AppState &&
           runtimeType == other.runtimeType &&
-          authState == other.authState &&
-          signInState == other.signInState;
+          productState == other.productState;
 
   @override
-  int get hashCode => authState.hashCode ^ signInState.hashCode;
+  int get hashCode => productState.hashCode;
 }

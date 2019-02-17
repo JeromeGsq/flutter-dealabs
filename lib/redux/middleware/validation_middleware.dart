@@ -1,5 +1,4 @@
 import 'package:redux/redux.dart';
-import 'package:flulabs/models/auth_request.dart';
 import 'package:flulabs/models/loading_status.dart';
 import 'package:flulabs/redux/app/app_state.dart';
 import 'package:flulabs/redux/auth/auth_actions.dart';
@@ -30,31 +29,6 @@ class ValidationMiddleware extends MiddlewareClass<AppState> {
         next(new CodeErrorAction(""));
       } else {
         next(CodeErrorAction(code_error));
-      }
-    }
-
-    if (action is ValidateLoginFields) {
-      validateEmail(Screen.SIGNIN, action.email, next);
-      validatePassword(Screen.SIGNIN, action.password, next);
-      RegExp exp = new RegExp(emailPattern);
-      if (!exp.hasMatch(action.email) || action.password.length < 6) {
-        next(ChangeLoadingStatusAction(LoadingStatus.error));
-      } else {
-        next(new SignInAction(new AuthRequest(action.email, action.password)));
-      }
-    }
-    if (action is ValidateSignUpFieldsAction) {
-      validateEmail(Screen.SIGNUP, action.request.email, next);
-      validatePassword(Screen.SIGNUP, action.request.password, next);
-      validatePassMatch(Screen.SIGNUP, action.request.password,
-          action.request.retypePassword, next);
-      RegExp exp = new RegExp(emailPattern);
-      if (!exp.hasMatch(action.request.email) ||
-          action.request.password.length < 6 ||
-          action.request.password != action.request.retypePassword) {
-        next(ChangeLoadingStatusAction(LoadingStatus.error));
-      } else {
-        next(new SignUpAction(action.request));
       }
     }
     next(action);
