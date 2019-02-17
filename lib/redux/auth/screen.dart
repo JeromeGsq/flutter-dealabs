@@ -1,4 +1,1 @@
-
-enum Screen{
-  SIGNIN,SIGNUP
-}
+enum Screen { SIGNIN, SIGNUP }

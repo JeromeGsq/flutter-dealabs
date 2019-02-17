@@ -1,4 +1,1 @@
-
-enum Gender{
-  UNDEFINED,MALE,FEMALE
-}
+enum Gender { UNDEFINED, MALE, FEMALE }

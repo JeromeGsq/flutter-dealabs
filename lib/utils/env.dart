@@ -1,5 +1,3 @@
-enum Env{
-  DEV,STAGE
-}
+enum Env { DEV, STAGE }
 
 const env = Env.DEV;

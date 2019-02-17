@@ -1,5 +1,4 @@
-
-class TokenResponse{
+class TokenResponse {
   String token;
   TokenResponse(this.token);
 }

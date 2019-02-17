@@ -1,5 +1,4 @@
-
-class SignUpRequest{
+class SignUpRequest {
   String email;
   String password;
   String retypePassword;
