@@ -1,6 +1,6 @@
 import 'package:meta/meta.dart';
 import 'package:flulabs/models/loading_status.dart';
-import 'package:flulabs/redux/auth/screen_state.dart';
+import 'package:flulabs/redux/pages/screen_state.dart';
 
 @immutable
 class ProductState {

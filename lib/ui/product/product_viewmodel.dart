@@ -1,8 +1,6 @@
 import 'package:redux/redux.dart';
 import 'package:flulabs/models/loading_status.dart';
 import 'package:flulabs/redux/app/app_state.dart';
-import 'package:flulabs/redux/auth/auth_actions.dart';
-import 'package:flulabs/redux/auth/screen.dart';
 
 class ProductViewModel {
   final LoadingStatus status;

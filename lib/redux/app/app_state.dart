@@ -1,5 +1,5 @@
 import 'package:meta/meta.dart';
-import 'package:flulabs/redux/auth/signin/singin_state.dart';
+import 'package:flulabs/redux/pages/product/product_state.dart';
 
 @immutable
 class AppState {
@@ -12,9 +12,9 @@ class AppState {
   }
 
   AppState copyWith({
-    ProductState signInState,
+    ProductState productState,
   }) {
-    return AppState(productState: signInState ?? this.productState);
+    return AppState(productState: productState ?? this.productState);
   }
 
   @override

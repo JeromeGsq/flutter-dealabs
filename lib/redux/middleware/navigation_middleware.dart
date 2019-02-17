@@ -1,7 +1,7 @@
 import 'package:redux/redux.dart';
 import 'package:flulabs/redux/app/app_state.dart';
-import 'package:flulabs/redux/auth/auth_actions.dart';
-import 'package:flulabs/redux/auth/keys.dart';
+import 'package:flulabs/redux/pages/auth_actions.dart';
+import 'package:flulabs/redux/pages/keys.dart';
 
 class NavigationMiddleware extends MiddlewareClass<AppState> {
   @override

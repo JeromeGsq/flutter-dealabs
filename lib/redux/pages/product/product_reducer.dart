@@ -1,10 +1,9 @@
 import 'package:redux/redux.dart';
 import 'package:flulabs/models/loading_status.dart';
-import 'package:flulabs/redux/auth/auth_actions.dart';
-import 'package:flulabs/redux/auth/screen.dart';
-import 'package:flulabs/redux/auth/signin/singin_state.dart';
+import 'package:flulabs/redux/pages/auth_actions.dart';
+import 'package:flulabs/redux/pages/product/product_state.dart';
 
-final signinReducer = combineReducers<ProductState>([
+final productReducer = combineReducers<ProductState>([
   TypedReducer<ProductState, ValidateEmailAction>(_validateEmail),
   TypedReducer<ProductState, ValidatePasswordAction>(_validatePassword),
   TypedReducer<ProductState, ValidateLoginFields>(_validateLoginFieldsAction),
