@@ -10,43 +10,60 @@ class TemperatureCounter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Container(
-      decoration: new BoxDecoration(border: new Border.all(color: Colors.grey)),
+      decoration: new BoxDecoration(
+          borderRadius: BorderRadius.circular(4),
+          border: new Border.all(color: Colors.grey[500], width: 0.5)),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           // Decrement button
-          ButtonTheme(
-            minWidth: 22,
-            height: 10,
-            child: FlatButton(
-              onPressed: decrement,
-              child: Text(
-                "-",
-                style: TextStyle(
-                  color: Colors.blue,
-                  fontSize: 13,
+          InkWell(
+            child: GestureDetector(
+              onTap: decrement,
+              child: Container(
+                alignment: Alignment.center,
+                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                constraints: BoxConstraints(minWidth: 20.0, minHeight: 10.0),
+                child: Text(
+                  "-",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.blue,
+                    fontSize: 20,
+                  ),
                 ),
               ),
             ),
           ),
-          Text(
-            temperature.toString() + "°",
-            style: TextStyle(
-              color: Colors.red,
-              fontSize: 13,
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 0, vertical: 4),
+            alignment: Alignment.center,
+            constraints: BoxConstraints(minWidth: 20.0, minHeight: 10.0),
+            child: Text(
+              "1165°",
+              //temperature.toString() + "°",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.red[700],
+                fontSize: 14,
+              ),
             ),
           ),
           // Increment button
-          ButtonTheme(
-            minWidth: 22,
-            height: 10,
-            child: FlatButton(
-              onPressed: increment,
-              child: Text(
-                "+",
-                style: TextStyle(
-                  color: Colors.red,
-                  fontSize: 13,
+          InkWell(
+            child: GestureDetector(
+              onTap: increment,
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                alignment: Alignment.center,
+                constraints: BoxConstraints(minWidth: 20.0, minHeight: 10.0),
+                child: Text(
+                  "+",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.red[700],
+                    fontSize: 18,
+                  ),
                 ),
               ),
             ),

@@ -1,41 +1,50 @@
 import 'package:flutter/material.dart';
 
+class Choice {
+  const Choice({this.title});
+
+  final String title;
+}
+
+const List<Choice> choices = const <Choice>[
+  const Choice(title: 'Actualiser'),
+  const Choice(title: 'Partager'),
+  const Choice(title: 'Sauver pour plus tard'),
+  const Choice(title: 'Suivre'),
+  const Choice(title: 'Signaler l\'expiration'),
+  const Choice(title: 'Signaler'),
+  const Choice(title: 'Ajouter une information'),
+  const Choice(title: 'Ouvrir dans le navigateur'),
+];
+
 class BaseState<T> extends State {
   // Top navigation bar
-  Widget header(String title) => Container(
-        width: double.infinity,
-        color: Colors.grey[850],
-        child: Padding(
-          padding: const EdgeInsets.only(left: 16.0, top: 16.0, bottom: 16.0),
-          child: new Row(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              GestureDetector(
-                child: Padding(
-                  padding: const EdgeInsets.all(2.0),
-                  child: Icon(
-                    Icons.arrow_back,
-                    color: Colors.white,
-                  ),
-                ),
-                onTap: () {
-                  Navigator.of(context).pop();
-                },
-              ),
-              Padding(
-                padding: EdgeInsets.only(left: 32.0),
-                child: new Text(
-                  title,
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 22.0,
-                      fontWeight: FontWeight.bold),
-                ),
-              )
-            ],
-          ),
+  Widget header(String title) => AppBar(
+        brightness: Brightness.dark,
+        backgroundColor: Colors.transparent,
+        title: Text(
+          title,
+          style: TextStyle(fontWeight: FontWeight.w500, fontSize: 20),
         ),
+        leading: IconButton(
+          tooltip: 'Previous choice',
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        ),
+        actions: <Widget>[
+          PopupMenuButton<Choice>(
+            itemBuilder: (BuildContext context) {
+              return choices.skip(2).map((Choice choice) {
+                return PopupMenuItem<Choice>(
+                  value: choice,
+                  child: Text(choice.title),
+                );
+              }).toList();
+            },
+          ),
+        ],
       );
 
   @override
