@@ -7,6 +7,9 @@ import 'package:flulabs/models/loading_status.dart';
 import 'package:flulabs/redux/app/app_state.dart';
 import 'package:flulabs/utils/strings.dart';
 
+import 'package:flulabs/ui/usercontrols/top_icon_flat_button.dart';
+import 'package:flulabs/ui/usercontrols/temperature_counter.dart';
+
 import 'product_viewmodel.dart';
 
 class ProductPage extends StatefulWidget {
@@ -76,107 +79,59 @@ class _ProductPageState extends BaseState<ProductPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            new Text(
-              "- 30 +",
-              style: TextStyle(color: Colors.black),
-            ),
-            new Text(
-              "Bons plans Xbox Store",
-              style: TextStyle(color: Colors.black),
-            ),
-            new Text(
-              "[Gold] NBA 2K19 jouable gratuitement sur Xbox One",
-              style: TextStyle(color: Colors.black),
+            Container(
+              padding: EdgeInsets.all(32),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  new TemperatureCounter(0),
+                  new Text(
+                    "Bons plans Xbox Store",
+                    style: TextStyle(color: Colors.black),
+                  ),
+                  new Text(
+                    "[Gold] NBA 2K19 jouable gratuitement sur Xbox One",
+                    style: TextStyle(color: Colors.black),
+                  ),
+                ],
+              ),
             ),
             Container(
               height: 0.5,
               color: Colors.grey,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                // Save button
-                FlatButton(
-                  onPressed: () => {},
-                  padding: EdgeInsets.all(10.0),
-                  child: Column(
-                    children: <Widget>[
-                      Icon(
-                        Icons.bookmark,
-                        color: Colors.grey,
-                      ),
-                      Text(
-                        "Sauver",
-                        style: TextStyle(
-                            color: Colors.grey,
-                            fontSize: 14,
-                            fontWeight: FontWeight.normal),
-                      )
-                    ],
+            Padding(
+              padding: EdgeInsets.all(8),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  // Save button
+                  TopIconFlatButton(
+                    "Sauver",
+                    Icons.bookmark,
+                    pressed: () => {},
                   ),
-                ),
-                // Follow
-                FlatButton(
-                  onPressed: () => {},
-                  padding: EdgeInsets.all(10.0),
-                  child: Column(
-                    children: <Widget>[
-                      Icon(
-                        Icons.notifications,
-                        color: Colors.grey,
-                      ),
-                      Text(
-                        "Suivre",
-                        style: TextStyle(
-                            color: Colors.grey,
-                            fontSize: 14,
-                            fontWeight: FontWeight.normal),
-                      )
-                    ],
+                  // Follow button
+                  TopIconFlatButton(
+                    "Suivre",
+                    Icons.notifications,
+                    pressed: () => {},
                   ),
-                ),
-                // Share
-                FlatButton(
-                  onPressed: () => {},
-                  padding: EdgeInsets.all(10.0),
-                  child: Column(
-                    children: <Widget>[
-                      Icon(
-                        Icons.share,
-                        color: Colors.grey,
-                      ),
-                      Text(
-                        "Partager",
-                        style: TextStyle(
-                            color: Colors.grey,
-                            fontSize: 14,
-                            fontWeight: FontWeight.normal),
-                      )
-                    ],
+                  // Share
+                  TopIconFlatButton(
+                    "Partager",
+                    Icons.share,
+                    pressed: () => {},
                   ),
-                ),
-                // Last comment
-                FlatButton(
-                  onPressed: () => {},
-                  padding: EdgeInsets.all(10.0),
-                  child: Column(
-                    children: <Widget>[
-                      Icon(
-                        Icons.file_download,
-                        color: Colors.grey,
-                      ),
-                      Text(
-                        "Dernier com.",
-                        style: TextStyle(
-                            color: Colors.grey,
-                            fontSize: 14,
-                            fontWeight: FontWeight.normal),
-                      )
-                    ],
+                  // Share
+                  TopIconFlatButton(
+                    "Dernier com.",
+                    Icons.file_download,
+                    pressed: () => {},
                   ),
-                ),
-              ],
-            )
+                ],
+              ),
+            ),
           ],
         ),
       );

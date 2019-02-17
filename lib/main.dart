@@ -32,6 +32,7 @@ class _AppState extends State<App> {
     return new StoreProvider<AppState>(
       store: widget.store,
       child: new MaterialApp(
+          debugShowCheckedModeBanner: false,
           theme: new ThemeData(
             brightness: Brightness.dark,
             // ignore: strong_mode_invalid_cast_new_expr
