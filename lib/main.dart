@@ -37,7 +37,7 @@ class _AppState extends State<App> {
             brightness: Brightness.dark,
             // ignore: strong_mode_invalid_cast_new_expr
             primaryColor: const Color(0xFF000000),
-            accentColor: const Color(primaryPink),
+            accentColor: const Color(0xFF000000),
           ),
           home: ProductPage(),
           navigatorKey: Keys.navKey,

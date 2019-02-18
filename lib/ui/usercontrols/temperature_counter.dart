@@ -12,7 +12,7 @@ class TemperatureCounter extends StatelessWidget {
     return new Container(
       decoration: new BoxDecoration(
           borderRadius: BorderRadius.circular(4),
-          border: new Border.all(color: Colors.grey[500], width: 0.5)),
+          border: new Border.all(color: Colors.grey[400], width: 0.5)),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
@@ -40,8 +40,7 @@ class TemperatureCounter extends StatelessWidget {
             alignment: Alignment.center,
             constraints: BoxConstraints(minWidth: 20.0, minHeight: 10.0),
             child: Text(
-              "1165°",
-              //temperature.toString() + "°",
+              temperature.toString() + "°",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 color: Colors.red[700],
