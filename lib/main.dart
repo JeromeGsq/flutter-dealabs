@@ -3,7 +3,6 @@ import 'package:redux/redux.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:flulabs/redux/app/app_state.dart';
 import 'package:flulabs/redux/pages/keys.dart';
-import 'utils/colors.dart';
 import 'ui/product/product_page.dart';
 import 'package:flulabs/redux/store.dart';
 import 'package:flutter/services.dart';

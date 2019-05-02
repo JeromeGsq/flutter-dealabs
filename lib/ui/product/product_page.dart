@@ -40,7 +40,6 @@ class _ProductPageState extends BaseState<ProductPage> {
       Scaffold(
         bottomNavigationBar: Container(
           color: Colors.black,
-          padding: EdgeInsets.only(bottom: 48),
           child: bottomCommentary(viewModel),
         ),
         body: new Stack(
@@ -68,6 +67,15 @@ class _ProductPageState extends BaseState<ProductPage> {
                             width: double.infinity,
                             height: 1000,
                             color: Colors.white,
+                            child: Padding(
+                              padding: const EdgeInsets.all(16.0),
+                              child: Text(
+                                "Vol A/R Paris (CDG) <> Manille (MNL) du 16 au 29 décembre 2019",
+                                style: TextStyle(
+                                  color: Colors.grey[900],
+                                ),
+                              ),
+                            ),
                           ),
                         ],
                       ),
@@ -90,7 +98,7 @@ class _ProductPageState extends BaseState<ProductPage> {
           image: const DecorationImage(
             fit: BoxFit.cover,
             image: NetworkImage(
-                "https://static-pepper.dealabs.com/threads/content/c2BMf/1512139.jpg"),
+                "http://fotorelax.ru/wp-content/uploads/2017/04/Beautiful-places-on-the-planet-with-the-beautiful-colors-of-water-00.jpg"),
           ),
         ),
       );
@@ -106,12 +114,35 @@ class _ProductPageState extends BaseState<ProductPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  TemperatureCounter(1183),
+                  TemperatureCounter(66),
+                  Padding(
+                    padding: EdgeInsets.symmetric(vertical: 8),
+                  ),
+                  new RichText(
+                    text: new TextSpan(
+                      // Note: Styles for TextSpans must be explicitly defined.
+                      // Child text spans will inherit styles from parent
+                      style: new TextStyle(
+                        fontSize: 14,
+                        color: Colors.black,
+                      ),
+                      children: <TextSpan>[
+                        new TextSpan(
+                            text: 'Bons plans ',
+                            style: new TextStyle(fontWeight: FontWeight.bold)),
+                        new TextSpan(
+                            text: 'Kayak',
+                            style: new TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.blue[400])),
+                      ],
+                    ),
+                  ),
                   Padding(
                     padding: EdgeInsets.symmetric(vertical: 8),
                   ),
                   Text(
-                    "Printemps du Cinéma : Place de cinéma à 4€",
+                    "Vol A/R Paris (CDG) <> Manille (MNL) du 16 au 29 décembre 2019",
                     style: TextStyle(
                         fontSize: 21,
                         color: Colors.black,
@@ -121,7 +152,7 @@ class _ProductPageState extends BaseState<ProductPage> {
                     padding: EdgeInsets.symmetric(vertical: 8),
                   ),
                   Text(
-                    "4€",
+                    "376,99€",
                     style: TextStyle(
                         fontSize: 24,
                         color: Colors.red[800],
@@ -136,7 +167,7 @@ class _ProductPageState extends BaseState<ProductPage> {
                     color: Colors.grey[300],
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 16, right: 16, top: 12),
+                    padding: EdgeInsets.only(left: 0, right: 0, top: 12),
                     child: MaterialButton(
                       minWidth: double.infinity,
                       height: 40,
@@ -225,7 +256,7 @@ class _ProductPageState extends BaseState<ProductPage> {
                   image: new DecorationImage(
                     fit: BoxFit.fill,
                     image: new NetworkImage(
-                        "https://static-pepper.dealabs.com/users/user_avatar/default/39775_1.jpg"),
+                        "https://static-pepper.dealabs.com/users/user_avatar/default/942525_1.jpg"),
                   ),
                 ),
               ),
@@ -240,13 +271,13 @@ class _ProductPageState extends BaseState<ProductPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   new Text(
-                    "rosdoudou",
+                    "daminou1983",
                     style: TextStyle(
                         color: Colors.black, fontWeight: FontWeight.bold),
                   ),
                   new Text(
-                    "17 février 0:00 ",
-                    style: TextStyle(color: Colors.grey, fontSize: 12),
+                    "30 avril 12:33",
+                    style: TextStyle(color: Colors.grey[700], fontSize: 13),
                   ),
                 ],
               ),

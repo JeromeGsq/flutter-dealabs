@@ -23,7 +23,7 @@ class TemperatureCounter extends StatelessWidget {
               child: Container(
                 alignment: Alignment.center,
                 padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-                constraints: BoxConstraints(minWidth: 20.0, minHeight: 10.0),
+                constraints: BoxConstraints(minWidth: 30.0, minHeight: 10.0),
                 child: Text(
                   "-",
                   style: TextStyle(
@@ -38,13 +38,13 @@ class TemperatureCounter extends StatelessWidget {
           Container(
             padding: EdgeInsets.symmetric(horizontal: 0, vertical: 4),
             alignment: Alignment.center,
-            constraints: BoxConstraints(minWidth: 20.0, minHeight: 10.0),
+            constraints: BoxConstraints(minWidth: 40.0, minHeight: 10.0),
             child: Text(
               temperature.toString() + "°",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                color: Colors.red[700],
-                fontSize: 14,
+                color: Colors.orange[700],
+                fontSize: 16,
               ),
             ),
           ),
@@ -55,7 +55,7 @@ class TemperatureCounter extends StatelessWidget {
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                 alignment: Alignment.center,
-                constraints: BoxConstraints(minWidth: 20.0, minHeight: 10.0),
+                constraints: BoxConstraints(minWidth: 30.0, minHeight: 10.0),
                 child: Text(
                   "+",
                   style: TextStyle(
